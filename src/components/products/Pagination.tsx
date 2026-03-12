@@ -64,7 +64,6 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <nav className="flex items-center justify-center gap-2 py-10" aria-label="Pagination">
-      {/* Кнопка "Назад" */}
       <button
         onClick={onPrevious}
         disabled={currentPage === 1}
@@ -74,10 +73,9 @@ export const Pagination: React.FC<PaginationProps> = ({
         )}
         aria-label="Previous page"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={20} stroke="#0047BB" />
       </button>
 
-      {/* Список сторінок */}
       <div className="flex items-center gap-2">
         {paginationRange.map((pageNumber, index) => {
           if (pageNumber === 'DOTS') {
@@ -112,17 +110,17 @@ export const Pagination: React.FC<PaginationProps> = ({
         })}
       </div>
 
-      {/* Кнопка "Вперед" */}
       <button
         onClick={onNext}
         disabled={currentPage === totalPages}
         className={cn(
           'flex h-12 w-12 items-center justify-center rounded-2xl border border-[#E5E7EB] bg-white transition-all duration-300',
-          'hover:border-[#0047BB] hover:text-[#0047BB] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-[#E5E7EB] disabled:hover:text-current',
+          'hover:border-[#0047BB] hover:text-[#0047BB]',
+          'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-[#E5E7EB] disabled:hover:text-current',
         )}
         aria-label="Next page"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={20} stroke="#0047BB" />
       </button>
     </nav>
   );

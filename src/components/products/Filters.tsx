@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Search, ChevronDown } from 'lucide-react';
+import { Search, ChevronDown, ArrowUpDown } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
 interface FilterValues {
@@ -29,7 +29,7 @@ export const ProductFilters: React.FC<Props> = ({ onFilterChange, initialValues 
   }, [search, sortBy, onFilterChange]);
 
   return (
-    <div className={cn('mb-8 flex flex-col gap-4 sm:flex-row sm:items-center')}>
+    <div className={cn('flex w-full max-w-[453px] flex-col gap-4')}>
       {/* Search Input Group */}
       <div className={cn('relative flex-1')}>
         <Search
@@ -50,14 +50,15 @@ export const ProductFilters: React.FC<Props> = ({ onFilterChange, initialValues 
       </div>
 
       {/* Sort Select Group */}
-      <div className={cn('relative min-w-[200px]')}>
+      <div className={cn('relative flex w-full max-w-62 min-w-46.5 items-center self-end')}>
+        <ArrowUpDown />
         <select
           {...register('sortBy')}
           aria-label="Сортування"
           className={cn(
-            'w-full appearance-none rounded-2xl border border-[#E5E7EB] bg-white py-3 pr-10 pl-4',
-            'cursor-pointer text-[16px] font-medium text-[#1D2127] outline-none',
-            'transition-all duration-300 focus:border-[#0047BB]',
+            'transition-all duration-300',
+            'w-full max-w-69 appearance-none rounded-2xl py-2 pr-7 pl-3',
+            'cursor-pointer text-[16px] font-medium text-[#1D2127] outline-none dark:text-white',
           )}
         >
           <option value="name">За назвою</option>
@@ -67,7 +68,7 @@ export const ProductFilters: React.FC<Props> = ({ onFilterChange, initialValues 
         </select>
         <ChevronDown
           className={cn(
-            'pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-[#828B94]',
+            'pointer-events-none absolute top-1/2 right-1 -translate-y-1/2 text-[#828B94]',
           )}
           size={20}
         />
