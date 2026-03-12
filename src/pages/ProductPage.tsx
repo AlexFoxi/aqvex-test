@@ -67,7 +67,10 @@ export const ProductPage: React.FC = () => {
 
   return (
     <main className="container mx-auto px-4 py-8">
-      <ProductFilters initialValues={filters} onFilterChange={handleFilterChange} />
+      <div className="mb-8 flex items-end justify-between">
+        <p className="text-[14px] font-medium text-[#828B94]">{data?.products.length} товаров</p>
+        <ProductFilters initialValues={filters} onFilterChange={handleFilterChange} />
+      </div>
 
       <div className="relative min-h-[500px]">
         {isLoading ? (
