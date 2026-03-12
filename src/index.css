@@ -1,35 +1,60 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss';
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@theme {
+  --font-sans:
+    'Klein', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+
+  --letter-spacing-tightest: -0.02em;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+@layer base {
+  @font-face {
+    font-family: 'Klein';
+    src: url('./assets/fonts/klein/Klein-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
 
-@media (prefers-color-scheme: light) {
+  @font-face {
+    font-family: 'Klein';
+    src: url('./assets/fonts/klein/Klein-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --background: #ffffff;
+    --foreground: #1d2127;
+    --card: #ffffff;
+
+    letter-spacing: var(--letter-spacing-tightest);
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    --background: #021527;
+    --foreground: #f8fafc;
+    --card: #0f172a;
   }
-  button {
-    background-color: #f9f9f9;
+
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --background: #021527;
+      --foreground: #f8fafc;
+      --card: #0f172a;
+    }
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+
+    @apply min-h-screen font-sans antialiased transition-colors duration-300;
   }
 }
