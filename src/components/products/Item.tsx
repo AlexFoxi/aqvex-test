@@ -69,6 +69,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
             <Star
               key={i}
               size={16}
+              strokeWidth={0}
               className={clsx(
                 i < Math.round(product.rating)
                   ? 'fill-[#3399FF] text-[#3399FF]'

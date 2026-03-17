@@ -12,8 +12,8 @@ export const DiscountTag: React.FC<DiscountTagProps> = ({ discount }) => {
           className="absolute inset-0 rounded-e-sm bg-[#FF2D55]"
           style={{
             clipPath: 'polygon(100% 0%, 15% 0%, 0% 50%, 15% 100%, 100% 100%)',
-            WebkitMaskImage: 'radial-gradient(circle at 7px 50%, transparent 2.5px, black 3px)',
-            maskImage: 'radial-gradient(circle at 7px 50%, transparent 2.5px, black 3px)',
+            WebkitMaskImage: 'radial-gradient(circle at 7px 50%, transparent 1.5px, black 3px)',
+            maskImage: 'radial-gradient(circle at 7px 50%, transparent 1.5px, black 3px)',
           }}
         />
 
