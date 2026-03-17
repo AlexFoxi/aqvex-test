@@ -20,7 +20,6 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       className={cn(
         'transition-all duration-300',
         'group flex flex-col overflow-hidden rounded-xl bg-transparent',
-        'hover:shadow-lg',
       )}
     >
       {/* Image Container */}
@@ -39,14 +38,14 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       {/* Pricing Block */}
       <div className="mb-8 flex items-center gap-3">
         {product.old_price && (
-          <span className="text-[22px] leading-none text-[#828B94] line-through decoration-[#FF4B4B]">
+          <span className="text-[22px] leading-none font-medium text-[#828B94] line-through decoration-[#FF4B4B]">
             {product.old_price}
           </span>
         )}
         <span
           className={cn(
             'bg-gradient-to-r from-[#003181] to-[#2288ED] bg-clip-text',
-            'text-[22px] leading-none font-bold text-transparent',
+            'text-[22px] leading-none font-medium text-transparent',
           )}
         >
           {product.price} {product.currency}
@@ -57,7 +56,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       {/* Title */}
       <h2
         className={cn(
-          'mb-4 line-clamp-3 min-h-[72px] text-[18px] leading-[1.3] font-semibold',
+          'mb-4 line-clamp-3 min-h-[72px] text-[18px] leading-[1.3] font-medium',
           'text-[#1D2127] dark:text-[#ffffff]',
         )}
       >
@@ -83,15 +82,15 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       {/* Stock & Category */}
       <div className="mb-6 flex items-center gap-3 text-[15px]">
         <div className="flex items-center gap-2">
-          <div className="flex h-[16px] w-[16px] items-center justify-center rounded-full bg-[#0CBA7A]">
-            <Check size={14} />
+          <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#0CBA7A]">
+            <Check stroke="#fff" strokeWidth={4} size={10} />
           </div>
           <span className="text-[14px] font-medium text-[#021527] dark:text-[#ffffff]">
             В наличии
           </span>
         </div>
         <div className="flex items-center gap-1.5 text-[#00B05C]">
-          <Droplet size={12} fill="currentColor" className="text-white" />
+          <Droplet size={16} fill="#E6E9ED" className="text-white" />
           <span className="text-[#828B94]">{product.category}</span>
         </div>
       </div>
@@ -105,7 +104,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
             className={cn(
               'transition-all duration-300 ease-in-out',
               'w-full appearance-none rounded-2xl border border-[#E5E7EB] bg-white',
-              'py-3 pr-10 pl-4 text-center text-[16px] font-bold text-[#1D2127]',
+              'py-3 pr-10 pl-4 text-center text-[16px] font-medium text-[#1D2127]',
               'outline-none focus:border-[#0047BB]',
             )}
           >
@@ -127,7 +126,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
           className={cn(
             'transition-all duration-300 ease-in-out',
             'flex flex-[1.5] items-center justify-center gap-2 rounded-2xl py-3',
-            'text-[16px] font-bold text-[#1D2127]',
+            'text-[16px] font-medium text-[#1D2127]',
             'bg-[#E9F4FF] hover:bg-[#b8d9fc]',
             'active:scale-95',
           )}
