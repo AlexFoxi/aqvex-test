@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
+import { MoreHorizontal, MoveLeft, MoveRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
 interface PaginationProps {
@@ -68,12 +68,12 @@ export const Pagination: React.FC<PaginationProps> = ({
         onClick={onPrevious}
         disabled={currentPage === 1}
         className={cn(
-          'flex h-12 w-12 items-center justify-center rounded-2xl border border-[#E5E7EB] bg-white transition-all duration-300',
-          'hover:border-[#0047BB] hover:text-[#0047BB] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-[#E5E7EB] disabled:hover:text-current',
+          'flex h-12 w-12 items-center justify-center rounded-2xl bg-white transition-all duration-300',
+          'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-[#E5E7EB] disabled:hover:text-current',
         )}
         aria-label="Previous page"
       >
-        <ChevronLeft size={20} stroke="#0047BB" />
+        <MoveLeft size={20} stroke="#182A42" />
       </button>
 
       <div className="flex items-center gap-2">
@@ -82,7 +82,7 @@ export const Pagination: React.FC<PaginationProps> = ({
             return (
               <div
                 key={`dots-${index}`}
-                className="flex h-12 w-8 items-center justify-center text-[#828B94]"
+                className="flex h-12 w-8 items-end justify-center pb-2 text-[#182A42]"
               >
                 <MoreHorizontal size={20} />
               </div>
@@ -97,10 +97,9 @@ export const Pagination: React.FC<PaginationProps> = ({
               key={page}
               onClick={() => onPageChange(page)}
               className={cn(
-                'h-12 min-w-[3rem] rounded-2xl border px-4 text-[16px] font-bold transition-all duration-300',
-                isActive
-                  ? 'border-[#0047BB] bg-[#0047BB] text-white'
-                  : 'border-[#E5E7EB] bg-white text-[#1D2127] hover:border-[#0047BB] hover:text-[#0047BB]',
+                'transition-all duration-300',
+                'h-12 min-w-[46px] rounded-2xl border border-transparent px-4 text-[16px] font-bold text-[#1D2127]',
+                isActive ? 'border border-[#43A0FD]' : 'hover:border-[#a1d0ff]',
               )}
               aria-current={isActive ? 'page' : undefined}
             >
@@ -114,13 +113,12 @@ export const Pagination: React.FC<PaginationProps> = ({
         onClick={onNext}
         disabled={currentPage === totalPages}
         className={cn(
-          'flex h-12 w-12 items-center justify-center rounded-2xl border border-[#E5E7EB] bg-white transition-all duration-300',
-          'hover:border-[#0047BB] hover:text-[#0047BB]',
+          'flex h-12 w-12 items-center justify-center rounded-2xl bg-white transition-all duration-300',
           'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-[#E5E7EB] disabled:hover:text-current',
         )}
         aria-label="Next page"
       >
-        <ChevronRight size={20} stroke="#0047BB" />
+        <MoveRight size={20} stroke="#182A42" />
       </button>
     </nav>
   );
